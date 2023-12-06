@@ -1,13 +1,10 @@
 package com.fabrice.blogapp.models;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity // specifies that this is a table and creates our table whenever we start our app
-
+@Table(name = "posts") //changing the name of the table. if not specified jpa will use class name as the table name
 public class Post {
     @Id
     @GeneratedValue
