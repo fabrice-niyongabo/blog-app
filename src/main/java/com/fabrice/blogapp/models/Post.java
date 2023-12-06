@@ -6,9 +6,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
-@Entity
+@Entity // specifies that this is a table and creates our table whenever we start our app
 
-public class Posts {
+public class Post {
     @Id
     @GeneratedValue
     private Long id;
