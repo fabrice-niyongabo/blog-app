@@ -9,6 +9,7 @@ public class ResourceNotFoundException extends RuntimeException{
 
     public ResourceNotFoundException(String resourceName) {
         super(String.format("%s not found.",resourceName)); //=> post not found
+        // super(message) =>  this passed the message to the parent class which is RuntimeException (the one that is being extended with)
         this.resourceName = resourceName;
     }
 
