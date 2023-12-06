@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/posts")
@@ -33,8 +35,10 @@ public class PostController {
     //getting single post
     @GetMapping("/{id}")
 //    public Post getPost(@PathVariable long id){    => because our variable is the same as the path variable
-    public Post getPost(@PathVariable(name = "id") long postId){ //here variable names are different that is why we have to specify the name of the pathvariable
+    public Map<String, Post> getPost(@PathVariable(name = "id") long postId){ //here variable names are different that is why we have to specify the name of the pathvariable
         Post post  = postRepository.findById(postId).orElseThrow(() -> new ResourceNotFoundException("post"));
-        return post;
+        Map<String, Post> postResponse  = new HashMap<>();
+        postResponse.put("post",post);
+        return postResponse;
     }
 }
